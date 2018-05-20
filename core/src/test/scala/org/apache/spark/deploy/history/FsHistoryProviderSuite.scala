@@ -524,7 +524,8 @@ class FsHistoryProviderSuite extends SparkFunSuite with BeforeAndAfter with Matc
             "Spark Properties" -> properties.toSeq,
             "JVM Information" -> Seq.empty,
             "System Properties" -> Seq.empty,
-            "Classpath Entries" -> Seq.empty
+            "Classpath Entries" -> Seq.empty,
+            "Hadoop Configuration" -> Seq.empty
           )),
           SparkListenerApplicationEnd(System.currentTimeMillis()))
 
@@ -781,7 +782,8 @@ class FsHistoryProviderSuite extends SparkFunSuite with BeforeAndAfter with Matc
           "Spark Properties" -> Seq.empty,
           "JVM Information" -> Seq.empty,
           "System Properties" -> Seq.empty,
-          "Classpath Entries" -> Seq.empty
+          "Classpath Entries" -> Seq.empty,
+          "Hadoop Configuration" -> Seq.empty
         )),
         SparkListenerApplicationEnd(5L)
       ) ++ (1 to 1000).map { i => SparkListenerJobStart(i, i, Nil) }: _*)

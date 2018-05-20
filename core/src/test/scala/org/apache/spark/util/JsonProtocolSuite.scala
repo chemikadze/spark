@@ -66,7 +66,8 @@ class JsonProtocolSuite extends SparkFunSuite {
       "JVM Information" -> Seq(("GC speed", "9999 objects/s"), ("Java home", "Land of coffee")),
       "Spark Properties" -> Seq(("Job throughput", "80000 jobs/s, regardless of job type")),
       "System Properties" -> Seq(("Username", "guest"), ("Password", "guest")),
-      "Classpath Entries" -> Seq(("Super library", "/tmp/super_library"))
+      "Classpath Entries" -> Seq(("Super library", "/tmp/super_library")),
+      "Hadoop Configuration" -> Seq(("hive.metastore.warehouse.dir", "/usr/hive/warehouse"))
     ))
     val blockManagerAdded = SparkListenerBlockManagerAdded(1L,
       BlockManagerId("Stars", "In your multitude...", 300), 500)
@@ -1695,6 +1696,9 @@ private[spark] object JsonProtocolSuite extends Assertions {
       |  },
       |  "Classpath Entries": {
       |    "Super library": "/tmp/super_library"
+      |  },
+      |  "Hadoop Configuration": {
+      |    "hive.metastore.warehouse.dir": "/usr/hive/warehouse"
       |  }
       |}
     """.stripMargin

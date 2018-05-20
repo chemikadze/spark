@@ -145,7 +145,8 @@ private[spark] class AppStatusListener(
       runtime,
       details.getOrElse("Spark Properties", Nil),
       details.getOrElse("System Properties", Nil),
-      details.getOrElse("Classpath Entries", Nil))
+      details.getOrElse("Classpath Entries", Nil),
+      details.getOrElse("Hadoop Configuration", Nil))
 
     coresPerTask = envInfo.sparkProperties.toMap.get("spark.task.cpus").map(_.toInt)
       .getOrElse(coresPerTask)

@@ -80,6 +80,9 @@ class AppStatusListenerSuite extends SparkFunSuite with BeforeAndAfter {
       "Classpath Entries" -> Seq(
         "/jar1" -> "System",
         "/jar2" -> "User"
+      ),
+      "Hadoop Configuration" -> Seq(
+        "hive.metastore.warehouse.dir" -> "/usr/hive/warehouse"
       )
     )
 
@@ -97,6 +100,7 @@ class AppStatusListenerSuite extends SparkFunSuite with BeforeAndAfter {
       assert(info.sparkProperties === details("Spark Properties"))
       assert(info.systemProperties === details("System Properties"))
       assert(info.classpathEntries === details("Classpath Entries"))
+      assert(info.hadoopProperties === details("Hadoop Configuration"))
     }
   }
 

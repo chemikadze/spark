@@ -312,7 +312,17 @@ class ApplicationEnvironmentInfo private[spark] (
     val runtime: RuntimeInfo,
     val sparkProperties: Seq[(String, String)],
     val systemProperties: Seq[(String, String)],
-    val classpathEntries: Seq[(String, String)])
+    val classpathEntries: Seq[(String, String)],
+    val hadoopProperties: Seq[(String, String)]) {
+
+    def this(
+        runtime: RuntimeInfo,
+        sparkProperties: Seq[(String, String)],
+        systemProperties: Seq[(String, String)],
+        classpathEntries: Seq[(String, String)]) {
+      this(runtime, sparkProperties, systemProperties, classpathEntries, Nil)
+    }
+}
 
 class RuntimeInfo private[spark](
     val javaVersion: String,
